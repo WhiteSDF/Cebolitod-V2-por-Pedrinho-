@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cebolitos V2</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      background-color: #0d0d0d;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      font-size: 2.5em;
+      background: linear-gradient(to right, #00ff88, #ffffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-align: center;
+      margin-bottom: 0;
+    }
+    .sub {
+      text-align: center;
+      font-size: 0.9em;
+      color: #ccc;
+      margin-bottom: 30px;
+    }
+    .login-container {
+      background-color: #1a1a1a;
+      border: 1px solid #00ff88;
+      box-shadow: 0 0 15px #00ff88;
+      border-radius: 8px;
+      padding: 20px;
+      width: 90%;
+      max-width: 400px;
+    }
+    .input-row {
+      display: flex;
+      gap: 10px;
+      flex-direction: row;
+    }
+    .input-row input:first-child {
+      flex: 4;
+    }
+    .input-row input:last-child {
+      flex: 1;
+    }
+    input {
+      padding: 12px;
+      font-size: 16px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: 1px solid #00ff88;
+      background-color: #333;
+      color: white;
+    }
+    .full-input {
+      width: 100%;
+    }
+    button {
+      width: 100%;
+      padding: 14px;
+      font-size: 18px;
+      background-color: #00ff88;
+      color: black;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    button:hover {
+      background-color: #00cc6a;
+    }
+    .footer {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 0.9em;
+      color: #888;
+    }
+    .footer a {
+      color: #00ff88;
+      text-decoration: none;
+    }
+    .toast {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #333;
+      color: white;
+      padding: 16px 24px;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      opacity: 0;
+      transform: translateX(100%);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .toast.show {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .toast.success { background-color: #00cc6a; }
+    .toast.error { background-color: #cc0033; }
+    .toast.warning { background-color: #cc9900; }
+    .toast .progress {
+      margin-top: 6px;
+      height: 4px;
+      background-color: rgba(255,255,255,0.3);
+      position: relative;
+      overflow: hidden;
+      border-radius: 2px;
+    }
+    .toast .progress::after {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background-color: white;
+      animation: fillBar 3s linear forwards;
+    }
+    @keyframes fillBar {
+      from { width: 100%; }
+      to { width: 0%; }
+    }
+  </style>
+</head>
+<body>
+  <h1>CEBOLITOS V2</h1>
+  <div class="sub">COM USO DA OPEN IA</div>
+  <div class="login-container">
+    <div class="input-row">
+      <input type="text" id="ra" placeholder="RA">
+      <input type="text" id="digito" placeholder="Dígito">
+    </div>
+    <input type="password" id="senha" placeholder="Senha" class="full-input">
+    <button onclick="fazerTarefas()">Fazer Tarefas</button>
+  </div>
+
+  <div class="footer">
+    feito pelo usuário <strong>NicollasPsico</strong>, esse script faz sua lição com a ajuda do Open IA<br>
+    Servidor da comunidade: <a href="https://discord.gg/platformdestroyer" target="_blank">discord.gg/platformdestroyer</a>
+  </div>
+
+  <div id="toast" class="toast"><span id="toast-msg"></span><div class="progress"></div></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
